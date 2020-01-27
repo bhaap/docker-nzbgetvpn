@@ -33,7 +33,7 @@ VOLUME /config
 VOLUME /data
 
 # expose port for http and privoxy
-EXPOSE 6789 8118 
+EXPOSE 61473 8118 
 
 # set permissions
 #################
