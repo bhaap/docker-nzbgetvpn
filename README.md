@@ -16,7 +16,7 @@ Latest stable OpenVPN release from Arch Linux repo.
 ```
 docker run -d \
     --cap-add=NET_ADMIN \
-    -p 6789:6789 \
+    -p 61473:61473 \
     --name=<container name> \
     -v <path for data files>:/data \
     -v <path for config files>:/config \
@@ -41,7 +41,7 @@ Please replace all user variables in the above command defined by <> with the co
 
 **Access NZBGet**
 
-`http://<host ip>:6789`
+`http://<host ip>:61473`
 
 username:- nzbget
 password:- tegbzn6789
@@ -54,7 +54,7 @@ PIA users will need to supply VPN_USER and VPN_PASS, optionally define VPN_REMOT
 ```
 docker run -d \
     --cap-add=NET_ADMIN \
-    -p 6789:6789 \
+    -p 61473:61473 \
     --name=nzbgetvpn \
     -v /apps/docker/nzbget/data:/data \
     -v /apps/docker/nzbget/config:/config \
@@ -89,7 +89,7 @@ AirVPN users will need to generate a unique OpenVPN configuration file by using 
 ```
 docker run -d \
     --cap-add=NET_ADMIN \
-    -p 6789:6789 \
+    -p 61473:61473 \
     --name=nzbgetvpn \
     -v /apps/docker/nzbget/data:/data \
     -v /apps/docker/nzbget/config:/config \
