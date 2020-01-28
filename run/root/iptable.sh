@@ -92,6 +92,10 @@ iptables -A INPUT -i eth0 -p $VPN_PROTOCOL --sport $VPN_PORT -j ACCEPT
 # accept input to nzbget webui port 61473
 iptables -A INPUT -i eth0 -p tcp --dport 61473 -j ACCEPT
 iptables -A INPUT -i eth0 -p tcp --sport 61473 -j ACCEPT
+iptables -A INPUT -i "${VPN_DEVICE_TYPE}" -p tcp --dport 61473 -j ACCEPT
+iptables -A INPUT -i "${VPN_DEVICE_TYPE}" -p tcp --sport 61473 -j ACCEPT
+iptables -A INPUT -i "${VPN_DEVICE_TYPE}" -p udp --dport 61473 -j ACCEPT
+iptables -A INPUT -i "${VPN_DEVICE_TYPE}" -p udp --sport 61473 -j ACCEPT
 
 # process lan networks in the list
 for lan_network_item in "${lan_network_list[@]}"; do
@@ -145,6 +149,11 @@ fi
 # accept output from nzbget webui port 61473 - used for lan access
 iptables -A OUTPUT -o eth0 -p tcp --dport 61473 -j ACCEPT
 iptables -A OUTPUT -o eth0 -p tcp --sport 61473 -j ACCEPT
+iptables -A OUTPUT -o "${VPN_DEVICE_TYPE}" -p tcp --dport 61473 -j ACCEPT
+iptables -A OUTPUT -o "${VPN_DEVICE_TYPE}" -p tcp --sport 61473 -j ACCEPT
+iptables -A OUTPUT -o "${VPN_DEVICE_TYPE}" -p udp --dport 61473 -j ACCEPT
+iptables -A OUTPUT -o "${VPN_DEVICE_TYPE}" -p udp --sport 61473 -j ACCEPT
+
 
 # process lan networks in the list
 for lan_network_item in "${lan_network_list[@]}"; do
